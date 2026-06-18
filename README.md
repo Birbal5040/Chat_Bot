@@ -1,34 +1,50 @@
-🤖 Navis AI Assistant
+# 🤖 Navis AI Assistant
 
-Navis AI Assistant is an AI-powered chatbot developed at Robo Manthan Pvt Ltd. It uses Groq LLM, Supabase PostgreSQL, Flask, and a modern web interface to provide intelligent conversational responses.
+Navis AI Assistant is an AI-powered chatbot developed at **Robo Manthan Pvt Ltd**. It uses **Groq LLM**, **Supabase PostgreSQL**, **Flask**, and a modern web interface to provide intelligent conversational responses.
 
-🚀 Features
-AI-powered chatbot using Groq API
-Custom training data support
-Supabase PostgreSQL database integration
-Local JSON fallback storage
-Voice input support
-Voice reply support
-Multi-language support
-Responsive UI
-Training panel for adding custom Q&A
-Deployable on Render
-🛠️ Tech Stack
-Frontend
-HTML5
-CSS3
-JavaScript
-Backend
-Python
-Flask
-Database
-PostgreSQL (Supabase)
-AI Model
-Groq API
-Llama 3.3 70B Versatile
-Deployment
-Render
-📂 Project Structure
+---
+
+## 🚀 Features
+
+- AI-powered chatbot using Groq API
+- Custom training data support
+- Supabase PostgreSQL database integration
+- Local JSON fallback storage
+- Voice input support
+- Voice reply support
+- Multi-language support
+- Responsive UI
+- Training panel for adding custom Q&A
+- Deployable on Render
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- HTML5
+- CSS3
+- JavaScript
+
+### Backend
+- Python
+- Flask
+
+### Database
+- PostgreSQL (Supabase)
+
+### AI Model
+- Groq API
+- Llama 3.3 70B Versatile
+
+### Deployment
+- Render
+
+---
+
+## 📂 Project Structure
+
+```text
 navis-LLM/
 │
 ├── static/
@@ -47,107 +63,179 @@ navis-LLM/
 ├── training_data.json
 ├── .env
 └── README.md
-⚙️ Installation
-Step 1: Clone Repository
-git clone https://github.com/yourusername/Chat_Bot.git
+```
+
+---
+
+## ⚙️ Installation
+
+### Step 1: Clone Repository
+
+```bash
+git clone https://github.com/Birbal5040/Chat_Bot.git
 cd Chat_Bot
-Step 2: Create Virtual Environment
-Windows
+```
+
+### Step 2: Create Virtual Environment
+
+#### Windows
+
+```bash
 python -m venv venv
+```
 
-Activate:
+Activate Virtual Environment:
 
+```bash
 venv\Scripts\activate
-Step 3: Install Dependencies
+```
+
+---
+
+### Step 3: Install Dependencies
+
+```bash
 pip install -r requirements.txt
-🔑 Environment Variables
+```
+
+---
+
+## 🔑 Environment Variables
 
 Create a file named:
 
+```text
 .env
+```
 
-Add:
+Add the following:
 
+```env
 GROQ_API_KEY=your_groq_api_key
 
 DATABASE_URL=your_supabase_database_url
+```
 
 Example:
 
+```env
 GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxx
 
 DATABASE_URL=postgresql://username:password@host:5432/postgres
-🗄️ Supabase Setup
-1. Create Supabase Project
+```
 
-Go to:
+---
+
+## 🗄️ Supabase Setup
+
+### 1. Create Supabase Project
+
+Visit:
 
 https://supabase.com
 
 Create a new project.
 
-2. Get Connection String
+---
 
-Navigate:
+### 2. Get Connection String
 
+Navigate to:
+
+```text
 Project Settings
 → Database
 → Connection String
+```
 
 Copy:
 
+```env
 DATABASE_URL=postgresql://...
-3. Create Table
+```
 
-Run:
+---
 
+### 3. Create Database Table
+
+Run the following SQL query:
+
+```sql
 CREATE TABLE qa_pairs (
     id SERIAL PRIMARY KEY,
     question TEXT NOT NULL,
     answer TEXT NOT NULL
 );
-▶️ Run Locally
+```
 
-Activate virtual environment:
+---
 
+## ▶️ Run Locally
+
+Activate Virtual Environment:
+
+```bash
 venv\Scripts\activate
+```
 
-Run:
+Run Application:
 
+```bash
 python app.py
+```
 
 Output:
 
+```text
 🤖 Navis AI Assistant
 AI Engine: Groq
 Storage: PostgreSQL (Supabase)
 
 Running on:
 http://127.0.0.1:5002
+```
 
-Open:
+Open Browser:
 
+```text
 http://localhost:5002
-🧠 Training Data
+```
+
+---
+
+## 🧠 Training Data
 
 Training data can be stored in:
 
-Supabase
+### Supabase
 
-Table:
+Table Name:
 
+```text
 qa_pairs
+```
 
 Columns:
 
+```text
 id
 question
 answer
-Local JSON Fallback
+```
+
+---
+
+### Local JSON Fallback
+
+File:
+
+```text
 training_data.json
+```
 
 Example:
 
+```json
 {
   "qa_pairs": [
     {
@@ -157,75 +245,129 @@ Example:
     }
   ]
 }
-🔍 API Endpoints
-Chat API
+```
+
+---
+
+## 🔍 API Endpoints
+
+### Chat API
+
+```http
 POST /api/chat
+```
 
 Request:
 
+```json
 {
   "message": "Who are you?"
 }
-Training Data API
+```
+
+---
+
+### Training Data API
+
+```http
 GET /api/training_data
+```
 
-Returns:
+Response:
 
+```json
 {
   "qa_pairs": []
 }
-🌐 Deploy on Render
-Step 1
+```
+
+---
+
+## 🌐 Deploy on Render
+
+### Step 1
 
 Push project to GitHub.
 
-Step 2
+---
+
+### Step 2
 
 Login:
 
 https://render.com
-Step 3
+
+---
+
+### Step 3
 
 Create:
 
+```text
 New Web Service
-Step 4
+```
+
+---
+
+### Step 4
 
 Connect GitHub Repository.
 
-Step 5
+---
+
+### Step 5
 
 Build Command:
 
+```bash
 pip install -r requirements.txt
+```
 
 Start Command:
 
+```bash
 gunicorn app:app
-Step 6
+```
 
-Add Environment Variables:
+---
 
+### Step 6
+
+Add Environment Variables
+
+```env
 GROQ_API_KEY=your_groq_api_key
 
 DATABASE_URL=your_supabase_database_url
-Step 7
+```
+
+---
+
+### Step 7
 
 Deploy
 
 Render automatically builds and deploys the project.
 
-🔊 Voice Features
-Supported
-English
-Hindi
-Browser Dependent
+---
+
+## 🔊 Voice Features
+
+### Supported Languages
+
+- English
+- Hindi
+- Kannada
+
+### Note
 
 Voice reply availability depends on browser-supported speech synthesis voices.
 
-👨‍💻 Developed By
+---
 
-Birbal Kumar
+## 👨‍💻 Developed By
+
+### Birbal Kumar
 
 AI/ML & Python Developer
 
@@ -234,22 +376,26 @@ Robo Manthan Pvt Ltd
 GitHub:
 
 https://github.com/Birbal5040
-📜 License
+
+---
+
+## 📜 License
 
 This project is developed for educational and commercial use under Robo Manthan Pvt Ltd.
 
-⭐ Future Improvements
-User authentication
-Conversation history
-PDF document chat
-Image understanding
-RAG implementation
-Multi-agent support
-Voice cloning
-Analytics dashboard
+---
 
-Save this as:
+## ⭐ Future Improvements
 
-README.md
+- User Authentication
+- Conversation History
+- PDF Document Chat
+- Image Understanding
+- RAG Implementation
+- Multi-Agent Support
+- Voice Cloning
+- Analytics Dashboard
 
-in the root folder of your GitHub repository, commit it, and push it. This is professional enough for GitHub, Render deployment, internships, and portfolio showcasing. 🚀
+---
+
+### If you like this project, please ⭐ the repository.
